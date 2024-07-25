@@ -1,0 +1,1 @@
+{"usuario": "admin", "senha": "a", "criar_requisicao": true, "criar_lote": true, "estornar_lote": true, "is_lote_webservice": true, "quantidade_de_requisicoes": 1, "paciente": "Teste apoio", "exame": ["DB"], "lab": "DB"}
