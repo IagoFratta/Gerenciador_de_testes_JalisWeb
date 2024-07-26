@@ -1,1 +1,1 @@
-{"usuario": "admin", "senha": "a", "criar_requisicao": true, "criar_lote": true, "estornar_lote": true, "is_lote_webservice": true, "quantidade_de_requisicoes": 1, "paciente": "Teste apoio", "exame": ["DB"], "lab": "DB"}
+{"criar_lote": false, "criar_requisicao": true, "estornar_lote": false, "exame": "COL", "is_lote_webservice": false, "lab": "DB", "paciente": "Rafael Alencar Pedro", "quantidade_de_requisicoes": 1, "senha": "a", "url_jalisweb": "http://localhost:5173/jalisweb/login", "usuario": "admin"}

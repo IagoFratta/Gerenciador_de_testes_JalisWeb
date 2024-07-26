@@ -28,7 +28,7 @@ def run_tests(data):
         page = context.new_page()
 
         jalis_web = JalisWeb(page)
-        jalis_web.login_page.login(data['usuario'], data['senha'])
+        jalis_web.login_page.login(data['url_jalisweb'], data['usuario'], data['senha'])
 
         if data['criar_requisicao']:
             jalis_web.navegar('Recepção', 'Requisições')

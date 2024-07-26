@@ -2,6 +2,7 @@ new Vue({
     el: '#app',
     data: {
         form: {
+            url_jalisweb: '',
             usuario: '',
             senha: '',
             quantidade_de_requisicoes: 1,

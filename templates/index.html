@@ -13,6 +13,11 @@
         <h1>Gerenciador de Testes</h1>
         <form @submit.prevent="submitForm">
             <div class="form-group">
+                <label for="url_jalisweb">URL do JalisWeb:</label>
+                <input type="text" v-model="form.url_jalisweb" required><br>
+            </div>
+
+            <div class="form-group">
                 <label for="usuario">Usuário:</label>
                 <input type="text" v-model="form.usuario" required><br>
             </div>
@@ -43,22 +48,22 @@
             </div>
 
             <div class="form-group">
-                <input type="checkbox" v-model="form.criar_requisicao">
+                <input class="checkbox" type="checkbox" v-model="form.criar_requisicao">
                 <label for="criar_requisicao">Criar Requisição</label><br>
             </div>
 
             <div class="form-group">
-                <input type="checkbox" v-model="form.criar_lote">
+                <input class="checkbox" type="checkbox" v-model="form.criar_lote">
                 <label for="criar_lote">Criar Lote</label><br>
             </div>
 
             <div class="form-group">
-                <input type="checkbox" v-model="form.estornar_lote">
+                <input class="checkbox" type="checkbox" v-model="form.estornar_lote">
                 <label for="estornar_lote">Estornar Lote</label><br>
             </div>
 
             <div class="form-group">
-                <input type="checkbox" v-model="form.is_lote_webservice">
+                <input class="checkbox" type="checkbox" v-model="form.is_lote_webservice">
                 <label for="is_lote_webservice">É Lote Webservice</label><br>
             </div>
 

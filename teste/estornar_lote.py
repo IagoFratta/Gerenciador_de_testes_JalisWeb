@@ -34,11 +34,11 @@ class EstornarLotePage:
         self.page.get_by_role("button", name="Sim").click()
         
         if (not is_webservice):
-            expect(self.page.get_by_text("O estorno deste lote será realizado apenas no sistema")).to_be_visible(timeout=20000)
+            expect(self.page.get_by_text("O estorno deste lote será realizado apenas no sistema")).to_be_visible()
             self.page.get_by_role("button", name="OK").click()
             
         if (laboratorio == "Alvaro Laboratorio"):
-            expect(self.page.get_by_text("Etiquetas para multiguia")).to_be_visible(timeout=20000)
+            expect(self.page.get_by_text("Etiquetas para multiguia")).to_be_visible()
             self.page.get_by_role("button", name="OK").click()
         expect(self.page.get_by_text("Lote estornado com sucesso.")).to_be_visible()
 
