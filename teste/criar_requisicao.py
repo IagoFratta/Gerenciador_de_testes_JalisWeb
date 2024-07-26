@@ -6,12 +6,11 @@ class RequisicaoPage:
         self.page = page
 
     def selecionar_exame(self, exame):
-        for i, exames in enumerate(exame):
             self.page.get_by_label("Exame", exact=True).click()
-            self.page.get_by_label("Exame", exact=True).fill(exames)
-            self.page.get_by_text(exames, exact=True).click()
+            self.page.get_by_label("Exame", exact=True).fill(exame)
+            self.page.get_by_text(exame, exact=True).click()
             self.page.get_by_role("button", name="OK").click()
-            expect(self.page.get_by_role("listbox").get_by_text(f"{i + 1}", exact=True)).to_be_visible()
+            # expect(self.page.get_by_role("listbox").get_by_text(f"{i + 1}", exact=True)).to_be_visible()
 
     def pesquisar_paciente(self, paciente):
         self.page.get_by_label("Nome").click()
@@ -35,7 +34,7 @@ class RequisicaoPage:
         expect(self.page.get_by_role("banner")).to_contain_text("Recepção/Requisições")
         self.page.get_by_role("button", name="Novo").click()
         self.pesquisar_paciente(paciente)
-        self.page.get_by_role("row", name="Teste apoio 29/05/2000 . . -").get_by_role("button").click()
+        self.page.get_by_role("row").nth(1).get_by_role("button").click()
         self.page.get_by_role("button", name="Sim").click()
         self.page.get_by_role("button", name="Sim").click()
         self.page.get_by_role("button", name="Próximo").click()

@@ -1,1 +1,1 @@
-{"criar_lote": false, "criar_requisicao": true, "estornar_lote": false, "exame": "COL", "is_lote_webservice": false, "lab": "DB", "paciente": "Rafael Alencar Pedro", "quantidade_de_requisicoes": 1, "senha": "a", "url_jalisweb": "http://localhost:5173/jalisweb/login", "usuario": "admin"}
+{"criar_lote": true, "criar_requisicao": true, "estornar_lote": true, "exame": "AL", "is_lote_webservice": true, "lab": "DB", "paciente": "Teste apoio", "quantidade_de_requisicoes": 1, "senha": "a", "url_jalisweb": "http://localhost:5173/jalisweb/login", "usuario": "admin"}
