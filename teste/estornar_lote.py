@@ -17,10 +17,6 @@ class EstornarLotePage:
         
     def selecionar_lote_para_estorno(self, usuario):
         self.page.locator("form").filter(has_text="Cod. LoteCod. Lote").locator("svg").click()
-        self.page.get_by_role("button", name="Adicionar filtro").click()
-        self.page.get_by_text("Usuário").click()
-        self.page.get_by_label("Usuário").click()
-        self.page.get_by_label("Usuário").fill(usuario)
         self.page.get_by_role("button", name="Pesquisar").click()
         print(self.page.get_by_role("row").nth(1).get_by_role("cell").nth(0).inner_text())
         self.page.get_by_role("row").nth(1).get_by_role("button").click()
@@ -37,7 +33,7 @@ class EstornarLotePage:
             expect(self.page.get_by_text("O estorno deste lote será realizado apenas no sistema")).to_be_visible()
             self.page.get_by_role("button", name="OK").click()
             
-        if (laboratorio == "Alvaro Laboratorio"):
+        if (laboratorio == "Alvaro Laboratorio" or "Hermes Pardini Laboratório"):
             expect(self.page.get_by_text("Etiquetas para multiguia")).to_be_visible()
             self.page.get_by_role("button", name="OK").click()
         expect(self.page.get_by_text("Lote estornado com sucesso.")).to_be_visible()

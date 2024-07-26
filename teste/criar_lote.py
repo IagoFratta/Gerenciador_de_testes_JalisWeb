@@ -1,6 +1,4 @@
-import re
-import time
-from playwright.sync_api import Playwright, sync_playwright, expect
+from playwright.sync_api import expect
 
 
 class CriarLotePage:
@@ -25,14 +23,15 @@ class CriarLotePage:
         self.page.get_by_role("button", name="Pesquisar").click()
         self.page.locator("td:nth-child(7)").first.click()
         
-    def enviar_lote(self):    
+    def enviar_lote(self):
+        if self.page.locator("div.v-card-title", has_text="Dados adicionais").is_visible():
+            print("Entrou no if")
+            self.page.get_by_label("", exact=True).fill("1")
+            self.page.get_by_role("button", name="Ok").click()
+                
         self.page.get_by_role("button", name="Criar Lote").click()
         splash_locator = self.page.locator("text=Gerando lote...")
-
-    # Espera o splash desaparecer (ou seja, que o splash não esteja mais visível)
         splash_locator.wait_for(state="hidden")
-
-    # Continuar com o restante do teste
         print("Splash desapareceu, continuando o teste...")
         self.page.bring_to_front()
         expect(self.page.locator("body")).to_contain_text("Deseja criar outro lote para o laboratório ")
