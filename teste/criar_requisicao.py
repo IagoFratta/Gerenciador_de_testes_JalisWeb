@@ -10,7 +10,6 @@ class RequisicaoPage:
             self.page.get_by_label("Exame", exact=True).fill(exame)
             self.page.get_by_text(exame, exact=True).click()
             self.page.get_by_role("button", name="OK").click()
-            # expect(self.page.get_by_role("listbox").get_by_text(f"{i + 1}", exact=True)).to_be_visible()
 
     def pesquisar_paciente(self, paciente):
         self.page.get_by_label("Nome").click()

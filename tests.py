@@ -32,7 +32,8 @@ def run_tests(data):
 
         if data['criar_requisicao']:
             jalis_web.navegar('Recepção', 'Requisições')
-            for _ in range(data['quantidade_de_requisicoes']):
+            quantidade_de_requisicoes = int(data['quantidade_de_requisicoes'])
+            for _ in range(quantidade_de_requisicoes):
                 jalis_web.requisicao_page.criar_requisicao(data['exame'], data['paciente'])
 
         if data['criar_lote']:

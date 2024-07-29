@@ -5,7 +5,7 @@ new Vue({
             url_jalisweb: '',
             usuario: '',
             senha: '',
-            quantidade_de_requisicoes: 1,
+            quantidade_de_requisicoes: Number,
             paciente: '',
             exame: '',
             lab: '',
