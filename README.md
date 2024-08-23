@@ -14,23 +14,25 @@ Copiar código
    ```bash
    git clone https://github.com/seu-usuario/Gerenciador_de_testes_JalisWeb.git
    cd Gerenciador_de_testes_JalisWeb
+   ```
 Crie e ative um ambiente virtual:
 
-  Copiar código
+  ```bash
   python -m venv .venv
-  source .venv/bin/activate  # No Windows, use .venv\Scripts\activate
+  //No Windows, use
+ .venv\Scripts\activate
+  ```
 
 2. Instale as dependências:
 
    ```bash
-  Copiar código
-  pip install -r requirements.txt
-  
+     pip install -r requirements.txt
+   ```
 Inicie o servidor Flask:
 
-bash
-Copiar código
-flask run
+```bash
+   flask run
+```
 Utilização
 Interface Web
 Acesse http://localhost:5000 no seu navegador para abrir a interface web. Nesta interface, você pode configurar e iniciar os testes automatizados.
