@@ -1,4 +1,3 @@
-import json
 from playwright.sync_api import sync_playwright, expect
 from teste.criar_lote import CriarLotePage
 from teste.criar_requisicao import RequisicaoPage
@@ -24,7 +23,7 @@ class JalisWeb:
 def run_tests(data):
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
-        context = browser.new_context()
+        context = browser.new_context(viewport={ 'width': 1366, 'height': 768 })
         page = context.new_page()
 
         jalis_web = JalisWeb(page)

@@ -4,6 +4,7 @@ from playwright.sync_api import expect
 class CriarLotePage:
     def __init__(self, page):
         self.page = page
+        self.titulo = self.page.locator("h1", has_text="Triagem/Criar lote")
     
     def criar_lote(self, paciente, laboratorio):
         self.selecionar_laboratorio(laboratorio)
@@ -11,7 +12,7 @@ class CriarLotePage:
         self.enviar_lote()
         
     def selecionar_laboratorio(self, laboratorio):
-        expect(self.page.get_by_role("banner")).to_contain_text("Triagem/Criar lote")
+        expect(self.titulo)
         self.page.get_by_role("button", name="Novo").click()
         self.page.locator("div:nth-child(3) > .v-field__input").click()
         self.page.get_by_text(laboratorio).click()
