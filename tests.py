@@ -1,3 +1,4 @@
+import time
 from playwright.sync_api import sync_playwright, expect
 from teste.criar_lote import CriarLotePage
 from teste.criar_requisicao import RequisicaoPage
@@ -23,17 +24,20 @@ class JalisWeb:
 def run_tests(data):
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
-        context = browser.new_context(viewport={ 'width': 1366, 'height': 768 })
+        context = browser.new_context(viewport={ 'width': 1366, 'height': 750 })
         page = context.new_page()
 
         jalis_web = JalisWeb(page)
         jalis_web.login_page.login(data['url_jalisweb'], data['usuario'], data['senha'])
 
-        if data['criar_requisicao']:
+        if data['criar_requisicao'] or data['criar_requisicao_multiguia']:
             jalis_web.navegar('Recepção', 'Requisições')
             quantidade_de_requisicoes = int(data['quantidade_de_requisicoes'])
-            for _ in range(quantidade_de_requisicoes):
-                jalis_web.requisicao_page.criar_requisicao(data['exame'], data['paciente'])
+            for i in range(quantidade_de_requisicoes):
+                if data['criar_requisicao_multiguia']:
+                    jalis_web.requisicao_page.criar_requisicao_multiguia(data['exame'], data['paciente'])
+                if (data['criar_requisicao']):
+                    jalis_web.requisicao_page.criar_requisicao(data['exame'], data['paciente'])
 
         if data['criar_lote']:
             jalis_web.navegar('Triagem', 'Criar lote')
@@ -43,6 +47,8 @@ def run_tests(data):
         if data['estornar_lote']:
             jalis_web.navegar('Triagem', 'Estornar lote')
             jalis_web.estornar_lote_page.estornar_lote(data['lab'], data['usuario'], data['is_lote_webservice'])
+        
+        time.sleep(2)
 
         context.close()
         browser.close()

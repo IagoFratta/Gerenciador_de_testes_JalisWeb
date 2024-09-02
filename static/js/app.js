@@ -10,6 +10,7 @@ new Vue({
             exame: '',
             lab: '',
             criar_requisicao: false,
+            criar_requisicao_multiguia: false,
             criar_lote: false,
             estornar_lote: false,
             is_lote_webservice: false

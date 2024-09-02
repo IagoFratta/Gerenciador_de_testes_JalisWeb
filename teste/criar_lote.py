@@ -1,3 +1,4 @@
+from asyncio import timeout
 from playwright.sync_api import expect
 
 
@@ -35,6 +36,6 @@ class CriarLotePage:
         splash_locator.wait_for(state="hidden")
         print("Splash desapareceu, continuando o teste...")
         self.page.bring_to_front()
-        expect(self.page.locator("body")).to_contain_text("Deseja criar outro lote para o laboratório ")
+        expect(self.page.locator("body")).to_contain_text("Deseja criar outro lote para o laboratório ", timeout = 50000)
         self.page.get_by_role("button", name="Não").click()
 

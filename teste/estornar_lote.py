@@ -33,8 +33,8 @@ class EstornarLotePage:
             expect(self.page.get_by_text("O estorno deste lote será realizado apenas no sistema")).to_be_visible()
             self.page.get_by_role("button", name="OK").click()
             
-        if (laboratorio == "Alvaro Laboratorio" or "Hermes Pardini Laboratório"):
-            expect(self.page.get_by_text("Etiquetas para multiguia")).to_be_visible()
+        if laboratorio.lower() in ["alvaro laboratorio", "hermes pardini laboratório"]:
+            expect(self.page.get_by_text("Etiquetas para multiguia")).to_be_visible(timeout = 50000)
             self.page.get_by_role("button", name="OK").click()
-        expect(self.page.get_by_text("Lote estornado com sucesso.")).to_be_visible()
+        expect(self.page.get_by_text("Lote estornado com sucesso.")).to_be_visible(timeout = 50000)
 
